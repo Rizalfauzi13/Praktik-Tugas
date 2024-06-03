@@ -5,7 +5,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"></li>
-          <li class="breadcrumb-item active">Courses</li>
+          <li class="breadcrumb-item active"> Courses</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -13,7 +13,7 @@
     <section class="section">
       <div class="card">
         <div class="card-body py-4">
-          <a href="/student/create" class="btn btn-primary m-3">+ Courses</a>
+          <a href="courses/create" class="btn btn-primary m-3">+ Courses</a>
           <div class="table-responsive">
             <table class="table">
               <tr>
@@ -30,7 +30,7 @@
                   <td>{{$courses->category}}</td>
                   <td>{{$courses->descripsi}}</td>
                   <td>
-                    <a href="#" class="btn btn-warning">Edit</a>
+                    <a href="/admin/courses/edit/{{$courses->id}}" class="btn btn-warning">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                   </td>
                 </tr>
