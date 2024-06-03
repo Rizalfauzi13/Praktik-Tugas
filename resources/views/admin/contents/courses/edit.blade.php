@@ -17,17 +17,17 @@
                 @csrf
                 @method('PUT')
                     <div class="mb-2">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="nomor"class="form-label">Nomor</label>
                         <input type="text" name="name" id="name" class="form-control" value="{{$courses->name ?? ''}}">
                     </div>
                     <div class="mb-2">
-                        <label for="nim" class="form-label">NIM</label>
-                        <input type="text" name="nim" id="nim" class="form-control">
+                        <label for="category" class="form-label">Category</label>
+                        <input type="text" name="category" id="catgeory" class="form-control">
                     </div>
 
                     <div class="mb-2">
-                        <label for="major" class="form-label">Major</label>
-                        <select name="major" id="major" class="form-select">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <select name="deskripsi" id="deskripsi" class="form-select">
                             <option value="">Pilih Jurusan</option>
                             <option value="Teknik Informatika">Teknik Informatika</option>
                             <option value="Sistem Informasi">Sistem Informasi</option>

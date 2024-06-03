@@ -13,7 +13,6 @@ class StudentController extends Controller
     {
         // mendapatkan data student dari databases
         $students = Student::all();
-
         // panggil view dan kirim data ke view
         return view('admin.contents.student.index', [
             'students' => $students
@@ -23,12 +22,20 @@ class StudentController extends Controller
     // Method untuk menampilkan form tambah student
     public function create()
     {
-        return view('admin.contents.student.create');
+
+        // dapatkan data courses dari database
+        $courses = courses::all();
+        
+        return view ('admin.contents.student.create', [
+            'courses' =>$courses
+        ]);
     }
 
     // Method untuk menyimpan data student
     public function store(Request $request)
     {
+        
+
         $request->validate([
             'name' => 'required',
             'nim' => 'required|numeric',
@@ -42,6 +49,7 @@ class StudentController extends Controller
             'nim' => $request->nim,
             'major' => $request->major,
             'class' => $request->class,
+            'course_id'=>$request->course_id,
 
         ]);
 
@@ -71,6 +79,7 @@ class StudentController extends Controller
             'nim' => 'required|numeric',
             'major' => 'required',
             'class' => 'required',
+            'course_id'=> 'nullable|numeric',
         ]);
         // simpan perubahan
         $student->update([

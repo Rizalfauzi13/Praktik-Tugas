@@ -10,5 +10,11 @@ class Courses extends Model
     use HasFactory;
 
     protected $fillable = ['name','category', 'descripsi'];
+
+    // mendeinisikan relasi ke model student 1:M
+    public function students()
+ {
+    return $this->hasMany(student ::class);
+ }
 }
 
