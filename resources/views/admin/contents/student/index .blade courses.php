@@ -20,7 +20,9 @@
                 <th>Nomor</th>
                 <th>Name</th>
                 <th>Category</th>
+                <th>Course</th>
                 <th>Deskripsi</th>
+                
 
               </tr>
 

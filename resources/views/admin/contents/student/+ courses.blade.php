@@ -27,6 +27,15 @@
                         <input type="text" name="category" id="category" class="form-control">
             
                     </div>
+                    <div class="mb-2">
+                      <label for="category" class="form-label">Course</label>
+                      <select name="course_id" id="course_id" class="form-select">
+                          <option value="">Choose Courses</option>
+                        @foreach ($courses as $course)
+                           <option value="{{$course->id }}">{{$course->name}}</option>
+                           @endforeach
+                      </select>
+                  </div>
 
                     <div class="mb-2">
                         <label for="Deskripsi" class="form-label">Deskripsi</label>
@@ -36,6 +45,7 @@
                     <div class="mb-4">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
+                    
                 </form>
           
     

@@ -35,6 +35,8 @@ class CoursesController extends Controller
             'name' => $request->name,
             'category' => $request->category,
             'descripsi' => $request->Deskripsi,
+            'course_id'=>$request->course_id,
+
 
         ]);
         // Arahkan ke halaman student index

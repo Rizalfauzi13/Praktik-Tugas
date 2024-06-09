@@ -21,6 +21,7 @@
                 <th>Name</th>
                 <th>Category</th>
                 <th>Deskripsi</th>
+                <th>Course</th>
               </tr>
 
               @foreach ($courses as $courses)
