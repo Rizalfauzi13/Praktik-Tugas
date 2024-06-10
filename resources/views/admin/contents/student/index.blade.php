@@ -23,7 +23,7 @@
                 <th>Major</th>
                 <th>Class</th>
                 <th>Course</th>
-                <th>Action</th>
+                
               </tr>
 
               @foreach ($students as $student)

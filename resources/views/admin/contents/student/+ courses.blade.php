@@ -28,7 +28,7 @@
             
                     </div>
                     <div class="mb-2">
-                      <label for="category" class="form-label">Course</label>
+                      <label for="category" class="form-label">Actoin</label>
                       <select name="course_id" id="course_id" class="form-select">
                           <option value="">Choose Courses</option>
                         @foreach ($courses as $course)

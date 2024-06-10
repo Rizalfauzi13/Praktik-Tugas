@@ -29,13 +29,14 @@ class CoursesController extends Controller
             'name' => 'required',
             'category' => 'required',
             'Deskripsi' => 'required',
+            'Actoin' => 'required',
         ]);
         // Simpan ke database
         Courses::create([
             'name' => $request->name,
             'category' => $request->category,
             'descripsi' => $request->Deskripsi,
-            'course_id'=>$request->course_id,
+            'Actoin_id'=>$request->Actoin_id,
 
 
         ]);

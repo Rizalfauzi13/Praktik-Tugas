@@ -9,7 +9,7 @@ class Courses extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','category', 'descripsi','course_id'];
+    protected $fillable = ['name','category', 'descripsi','action_id'];
 
     // mendeinisikan relasi ke model student 1:M
     public function students()

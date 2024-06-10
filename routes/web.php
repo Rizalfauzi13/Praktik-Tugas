@@ -1,39 +1,53 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
-use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
-  return view('Welcome');
+    return view('welcome');
 });
 
-Route::get('admin/dashboard', [DashboardController::class, 'index']);
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route untuk menampilkan student
-Route::get('admin/student', [StudentController::class, 'index']);
-Route::get('admin/student/courses', [CoursesController::class, 'courses']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-// Route untuk menampulkan form tambah student
-Route::get('admin/student/create', [StudentController::class, 'create']);
+    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Route untuk mengirim data form tambah student 
-Route::post('admin/student/create', [StudentController::class, 'store']);
+    // Route untuk menampilkan student
+    Route::get('admin/student', [StudentController::class, 'index']);
+    Route::get('admin/student/courses', [CoursesController::class, 'courses']);
 
-// Route untuk menampilkan student
-Route::get('admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
+    // Route untuk menampulkan form tambah student
+    Route::get('admin/student/create', [StudentController::class, 'create']);
 
-// Route untuk menyimpan hasil update student
-Route::post('admin/student/update/{id}', [StudentController::class, 'update']);
+    // Route untuk mengirim data form tambah student 
+    Route::post('admin/student/create', [StudentController::class, 'store']);
 
-// Route untuk menghapus student
-Route::delete('admin/student/delete/{id}', [StudentController::class, 'destory']);
+    // Route untuk menampilkan student
+    Route::get('admin/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
 
-// Route untuk mengarahkan ke halaman tambah courses
-Route::get('admin/student/courses/create', [CoursesController::class, 'createCourses']);
+    // Route untuk menyimpan hasil update student
+    Route::post('admin/student/update/{id}', [StudentController::class, 'update']);
 
-// Route buat nambahin courses
-Route::post('admin/student/courses/create', [CoursesController::class, 'storeCourses']);
-// Route Untuk menaampilkan halaman courses
-route::get('admin/courses/edit/{id}', [CoursesController::class, 'edit']);
+    // Route untuk menghapus student
+    Route::delete('admin/student/delete/{id}', [StudentController::class, 'destory']);
+
+    // Route untuk mengarahkan ke halaman tambah courses
+    Route::get('admin/student/courses/create', [CoursesController::class, 'createCourses']);
+
+    // Route buat nambahin courses
+    Route::post('admin/student/courses/create', [CoursesController::class, 'storeCourses']);
+    // Route Untuk menaampilkan halaman courses
+    route::get('admin/courses/edit/{id}', [CoursesController::class, 'edit']);
+});
+
+require __DIR__ . '/auth.php';

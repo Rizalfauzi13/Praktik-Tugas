@@ -21,7 +21,7 @@
                 <th>Name</th>
                 <th>Category</th>
                 <th>Deskripsi</th>
-                <th>Course</th>
+                <th>Action</th>
               </tr>
 
               @foreach ($courses as $courses)
@@ -30,6 +30,8 @@
                   <td>{{$courses->name}}</td>
                   <td>{{$courses->category}}</td>
                   <td>{{$courses->descripsi}}</td>
+                  <td>{{$courses->descripsi}}</td>
+                  <td>{{$actoin->actoin}}</td>
                   <td>
                     <a href="/admin/courses/edit/{{$courses->id}}" class="btn btn-warning">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
